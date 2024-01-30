@@ -8,17 +8,23 @@ import Navbar from "./Components/Navbar";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Foodarea from "./Components/Foodarea";
+import Footer from "./Components/Footer";
+import Carousel from "./Components/Carousel";
+
 
 
 function App() {
+  const slides = [
+    "../src/images/first.jpg",
+    "../src/images/second.jpg",
+    "../src/images/third.jpg",
+    "../src/images/fourth.jpg"
+  ]
   return (
     <div >
       <Router>
         <Navbar />
-
-        
-
-        <div className=" h-screen w-full bg-gradient-to-b from-black via-gray-950 to to-gray-900 text-white">{/*container for remaining elements */}
+        <div className=" h-screen w-full bg-gradient-to-b from-black via-gray-800 to to-gray-700">{/*container for remaining elements */}
 
           <Routes>
             <Route path="/" exact element={<Foodarea />} />
@@ -26,6 +32,8 @@ function App() {
             <Route path="/signUp" exact element={<Signup />} />
 
           </Routes>
+          <Footer />
+
         </div>
       </Router>
     </div>
