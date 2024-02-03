@@ -9,17 +9,12 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Foodarea from "./Components/Foodarea";
 import Footer from "./Components/Footer";
-import Carousel from "./Components/Carousel";
+
 
 
 
 function App() {
-  const slides = [
-    "../src/images/first.jpg",
-    "../src/images/second.jpg",
-    "../src/images/third.jpg",
-    "../src/images/fourth.jpg"
-  ]
+  
   return (
     <div >
       <Router>
