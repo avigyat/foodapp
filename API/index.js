@@ -25,9 +25,10 @@ app.get('/', (req, res) => {
 
 
 
-//Route for createUser
+//Routes
 
 app.use('/api', require('./routes/createUser'))
+app.use('/api/auth', require('./routes/loginUser'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

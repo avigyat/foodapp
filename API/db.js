@@ -12,10 +12,10 @@ const mongoConnect=async()=>{
         const fetched_array = await fetched_data.find({}).toArray()
         //converting fetched data in array
         
-        console.log(fetched_array)
+       
         
     } catch (error) {
-        console.log(error)
+        console.log("Problem while connecting to db", error)
     }
    
     }
