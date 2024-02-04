@@ -19,16 +19,16 @@ app.use((req,res,next)=>{
   next();
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 
 
-//Routes
+
+
+
 
 app.use('/api', require('./routes/createUser'))
 app.use('/api/auth', require('./routes/loginUser'))
+app.use('/api', require('./routes/foodData'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
