@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
+
 const Login = (props) => {
   let navigate = useNavigate();
   const host = "http://localhost:4000/";
@@ -28,13 +29,15 @@ const Login = (props) => {
     console.log(json);
     if (json.success) {
       //saving auth token in local storage and redirect
-      
+      localStorage.setItem('token', json.authToken);
+      console.log(localStorage.getItem('token'), "from login")
+
       navigate('/')
       alert("welcome to Daily-Foody");
 
     } else {
       alert("invalid creds");
-      
+
     }
 
   }
@@ -45,11 +48,11 @@ const Login = (props) => {
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
               <h1 className="mb-8 text-3xl text-center">Log In</h1>
-             
+
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email" onChange={onChange} value={loginDetails.email} required 
+                name="email" onChange={onChange} value={loginDetails.email} required
                 placeholder="Email" />
 
               <input
