@@ -49,7 +49,7 @@ const Login = (props) => {
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email" onChange={onChange} value={loginDetails.email} required
+                name="email" onChange={onChange} value={loginDetails.email} required 
                 placeholder="Email" />
 
               <input

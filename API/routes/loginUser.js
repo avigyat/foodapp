@@ -20,7 +20,7 @@ async (req, res) => {
 
     
         let user = await User.findOne({ email });
-        console.log(user)
+        
         if (!user) { 
             let success=false;
             res.status(400).json({ error: "Please enter correct credentials",success}) }
