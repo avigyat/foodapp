@@ -41,7 +41,7 @@ const Signup = (props) => {
 }
 
   return (
-    <div>
+    <div className='h-full  bg-gradient-to-b from-black via-gray-800 to to-gray-700 p-8'>
       <form className='mx-8' >
         <div className="bg-grey-lighter min-h-screen flex flex-col">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">

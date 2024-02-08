@@ -19,7 +19,7 @@ function App() {
     <div >
       <Router>
         <Navbar />
-        <div className=" h-screen w-full bg-gradient-to-b from-black via-gray-800 to to-gray-700">{/*container for remaining elements */}
+        <div >{/*container for remaining elements */}
 
           <Routes>
             <Route path="/" exact element={<Foodarea />} />
