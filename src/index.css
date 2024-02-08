@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.search-sec{
+    padding: 2rem;
+    background-color: #0a0a0a28;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+  }
+  .search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.975rem;
+    line-height: 2.5;
+    color: white;
+    background-color: #0a0a0a28;
+    background-image: none;
+    border: 1px solid #e9a1a1;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+    align-items: center;
+  }
+  .wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+    background-color: rgb(79, 180, 79);
+  }
+  @media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        
+        background: black;
+        color: white;
+    }
+  }
+  
+  @media (max-width: 992px){
+    .search-sec{
+        background: black;
+        color: white;
+        margin-top: -114px;
+    }
+  }

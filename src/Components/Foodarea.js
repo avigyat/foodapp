@@ -48,7 +48,7 @@ const Foodarea = () => {
                                             ).map((filteredItems) => {
 
                                                 return (
-                                                    <div >
+                                                    
                                                         <div key={filteredItems._id} className='text-white px-2 py-2' >
                                                            {console.log(filteredItems.options,"OPTIONS")}
                                                             <Card 
@@ -59,7 +59,7 @@ const Foodarea = () => {
                                                                 foodDescription ={filteredItems.description}>
                                                             </Card>
                                                         </div>
-                                                    </div>
+                                                    
 
                                                 )
                                             })
