@@ -9,7 +9,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Foodarea from "./Components/Foodarea";
 import Footer from "./Components/Footer";
-import Crousel from "./Components/Crousel";
+
 
 
 
@@ -20,7 +20,7 @@ function App() {
     <div >
       <Router>
         <Navbar />
-        <Crousel />
+       
         <div >{/*container for remaining elements */}
 
           <Routes>
