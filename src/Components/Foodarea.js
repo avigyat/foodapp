@@ -95,11 +95,9 @@ const Foodarea = () => {
                                                         <div key={filteredItems._id} className='text-white px-2 py-2' >
                                                            
                                                             <Card
-                                                                foodCategory={filteredItems.CategoryName}
-                                                                foodName={filteredItems.name}
-                                                                foodImgSrc={filteredItems.img}
-                                                                foodOptions={filteredItems.options}
-                                                                foodDescription={filteredItems.description}>
+                                                                fooditems={filteredItems}
+                                                                foodOptions={filteredItems.options[0]}
+                                                                >
                                                             </Card>
                                                         </div>
 

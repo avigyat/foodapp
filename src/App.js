@@ -9,31 +9,35 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Foodarea from "./Components/Foodarea";
 import Footer from "./Components/Footer";
+import { CartProvider } from "./Components/ContextReducer";
 
 
 
 
 
 function App() {
-  
+
   return (
-    <div >
-      <Router>
-        <Navbar />
-       
-        <div >{/*container for remaining elements */}
+    <CartProvider>
+      <div >
 
-          <Routes>
-            <Route path="/" exact element={<Foodarea />} />
-            <Route path="/login" exact element={<Login />} />
-            <Route path="/signUp" exact element={<Signup />} />
+        <Router>
+          <Navbar />
 
-          </Routes>
-          <Footer />
+          <div >{/*container for remaining elements */}
 
-        </div>
-      </Router>
-    </div>
+            <Routes>
+              <Route path="/" exact element={<Foodarea />} />
+              <Route path="/login" exact element={<Login />} />
+              <Route path="/signUp" exact element={<Signup />} />
+
+            </Routes>
+            <Footer />
+
+          </div>
+        </Router>
+      </div>
+    </CartProvider>
   );
 }
 
