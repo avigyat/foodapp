@@ -12,10 +12,11 @@ const Card = (props) => {
   let data = useCart();
   
   let handleShop = async()=>{
-    await dispatch({type:"Add",id:props.fooditems._id,CategoryName:props.fooditems.CategoryName,img:props.fooditems.img,
+    await dispatch({type:"ADD",id:props.fooditems._id,CategoryName:props.fooditems.CategoryName,img:props.fooditems.img,
     name:props.fooditems.name,price:finalPrice,qty:qty,size:size})
     console.log(data)
   }
+  
   
   let finalPrice =  qty*parseInt(options[size])
   useEffect(() => {  

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useCart } from './ContextReducer';
 // import Modal from '../Modal';
 // import Cart from './Cart';
 
@@ -9,6 +10,8 @@ const Navbar = () => {
     // const [cartView, setCartView] = useState(false);
     let location = useLocation();
     const navigate = useNavigate();
+    let data = useCart();
+    
 
     React.useEffect(() => {
         console.log(location.pathname);
@@ -42,7 +45,8 @@ const Navbar = () => {
                         : <form className='d-flex topnav-right' >
                             <button className='btn mx-2 btn-primary' onClick={viewCart}> Cart
                                 <span className="bg-green-100 text-green-800 text-xs font-small me-2 mx-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-                                    2</span>
+                                        {data.length}
+                                </span>
                             </button>
                             {/* {cartView ? <Modal onClose={()=>setCartView(false)}><Cart></Cart></Modal> : null} */}
                             <button className='btn mx-2 btn-danger' onClick={logout}>Log out</button>
