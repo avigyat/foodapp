@@ -4,11 +4,35 @@ import { useCart, useDispatchCart } from './ContextReducer';
 
 const Cart = () => {
     const navigate = useNavigate();
-    let data = useCart();
+    let orderdata = useCart();
+    let useremail = localStorage.getItem('email')
     let dispatch = useDispatchCart();
-    console.log("data from reducers", data.length)
+    console.log("data from reducers", orderdata.length)
 
-    if (data.length === 0) {
+
+    const host = "http://localhost:4000/";
+    const handleCheckout =async(e)=>{
+        e.preventDefault();//synthetic event
+        
+        const response = await fetch(`${host}history/orderData`, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+      
+            headers: {
+              "Content-Type": "application/json"
+      
+            }, body: JSON.stringify({ email:useremail,data:orderdata})
+          });
+          console.log(orderdata)
+          const json = await response.json()
+          const status =  response.status
+          console.log("Response", response)
+          if(status === 200){
+            dispatch({type:"DROP"})
+          }
+          console.log(json);
+    }
+
+    if (orderdata.length === 0) {
         return (
             <div>
                 <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
@@ -51,7 +75,7 @@ const Cart = () => {
 
         )
     }
-    let totalPrice = data.reduce((total, food) => total + food.price, 0)
+    let totalPrice = orderdata.reduce((total, food) => total + food.price, 0)
     return (
         <div>
             <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
@@ -74,7 +98,7 @@ const Cart = () => {
 
 
 
-                                        {data.map((food, index) => (
+                                        {orderdata.map((food, index) => (
 
 
                                             <div className="mt-8">
@@ -120,7 +144,8 @@ const Cart = () => {
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                                         <div className="mt-6">
-                                            <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                                            <button onClick={handleCheckout}
+                                            className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</button>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p>

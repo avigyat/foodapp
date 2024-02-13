@@ -8,7 +8,7 @@ const reducer = (state, action) => {
         case "ADD":
             return [...state, {
                 id: action.id, CategoryName: action.CategoryName, img: action.img,
-                name: action.name, price: action.price, qty: action.qty, size: action.size
+                name: action.name, price: action.price, qty: action.qty, size: action.size, orderDate:new Date().toDateString()
             }]
             break;
         case "Remove":
@@ -16,7 +16,9 @@ const reducer = (state, action) => {
             newArr.splice(action.index,1)
             return newArr;
             break;
-
+        case "DROP":
+            let empArray =[]
+            return empArray
         default:
             console.log("error in reducer")
             break;

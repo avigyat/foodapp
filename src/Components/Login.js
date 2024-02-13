@@ -30,7 +30,8 @@ const Login = (props) => {
     if (json.success) {
       //saving auth token in local storage and redirect
       localStorage.setItem('token', json.authToken);
-      console.log(localStorage.getItem('token'), "from login")
+      
+      localStorage.setItem('email',email)
 
       navigate('/')
       alert("welcome to Daily-Foody");
