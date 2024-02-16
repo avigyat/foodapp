@@ -30,6 +30,7 @@ app.use('/api', require('./routes/createUser'))
 app.use('/api/auth', require('./routes/loginUser'))
 app.use('/api', require('./routes/foodData'))
 app.use('/history', require('./routes/order_data'))
+app.use('/orderHistory', require('./routes/orderHistory'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

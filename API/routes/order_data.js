@@ -11,7 +11,7 @@ router.post("/orderData",
             try {
                 await Order.create({
                     email: req.body.email,
-                    order_data: [data]
+                    order_data: [data],
 
                 }).then(() => { return res.json({ 'success': 'true' }).status(200) })
 
@@ -31,6 +31,7 @@ router.post("/orderData",
         }
     }
 )
+
 
 
 module.exports = router;

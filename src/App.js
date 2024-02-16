@@ -11,6 +11,7 @@ import Foodarea from "./Components/Foodarea";
 import Footer from "./Components/Footer";
 import { CartProvider } from "./Components/ContextReducer";
 import Cart from "./Components/Cart";
+import Orderhistory from "./Components/Orderhistory";
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <div >{/*container for remaining elements */}
 
             <Routes>
+            <Route path="/orderHistory" exact element={<Orderhistory />}/>
               <Route path="/viewCart" exact element={<Cart />}/>
               <Route path="/" exact element={<Foodarea />} />
               <Route path="/login" exact element={<Login />} />
