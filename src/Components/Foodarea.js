@@ -30,50 +30,46 @@ const Foodarea = () => {
 
     return (
         <>
-        {/* //CROUSAL AND SEARCH BAR */}
+            {/* //CROUSAL AND SEARCH BAR */}
             <div>
 
-                <section >
-                    <div id="carouselExampleFade" className="carousel slide " data-ride="carousel" >
-                        <div className="carousel-inner" style={{ height: "500px", objectFit: "fill" }}>
-                            <div className="carousel-item active" >
-                                <img src="https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU=" className="d-block w-100" alt="..." />
-                            </div>
-                            <div className="carousel-item">
-                                <img src="https://pbs.twimg.com/media/EGHYvtkUcAAuc8T?format=jpg&name=large" className="d-block w-100" alt="..." />
-                            </div>
-                            <div className="carousel-item">
-                                <img src="https://pbs.twimg.com/media/EGHYvtjU0AAO8w1?format=jpg&name=large" className="d-block w-100" alt="..." />
-                            </div>
-                            
+                <div id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel">
+
+                    <div className="carousel-inner " id='carousel'>
+                        <div class=" carousel-caption  " style={{ zIndex: "9" }}>
+                            <form className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
+                                <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Type in..." aria-label="Search" />
+                                <button className="btn text-white bg-success" type="submit">Search</button>
+                            </form>
                         </div>
-                        
-                    </div>
-                </section>
-                <section className=" align-middle w-full">
-                    <div >
-                        <div className='d-flex justify-content-center w-full bg-black ' >
-                           
-                                        <div className="col-lg-6 col-md-6 col-sm-6 mx-2 mt-2">
-                                            <input type="text"
-                                             className="form-control search-slt" 
-                                             placeholder="Search" value={search} 
-                                             onChange={(e)=>{setsearch(e.target.value)}}/>
-                                        </div>                                      
-                               
+                        <div className="carousel-item active" style={{ height: "490px" }} >
+                            <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
+                        </div>
+                        <div className="carousel-item" style={{ height: "490px" }}>
+                            <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+                        </div>
+                        <div className="carousel-item" style={{ height: "490px" }}>
+                            <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
                         </div>
                     </div>
-                </section>
-
-
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
 
             </div>
 
-        {/* //Main FOOD AREA */}
+            {/* //Main FOOD AREA */}
             <div className="  h-full  bg-gradient-to-b from-black via-gray-800 to to-gray-700 p-8">
                 <div >
                     {
                         cat != [] ?
+
                             cat.map((data) => {
                                 return (
                                     <div className="row mb-3 " >
@@ -83,8 +79,9 @@ const Foodarea = () => {
                                         </div>
                                         <hr className='4px bg-white ' />
                                         <div className="flex flex-wrap  mt-10 text-white" >
-
+                                            {console.log(items)}
                                             {
+
                                                 items != [] ? items.filter((item) =>
                                                     (item.CategoryName === data.CategoryName) &&
                                                     (item.name.toLowerCase().includes(search.toLocaleLowerCase()))
@@ -93,11 +90,11 @@ const Foodarea = () => {
                                                     return (
 
                                                         <div key={filteredItems._id} className='text-white px-2 py-2' >
-                                                           
+
                                                             <Card
                                                                 fooditems={filteredItems}
                                                                 foodOptions={filteredItems.options[0]}
-                                                                >
+                                                            >
                                                             </Card>
                                                         </div>
 
